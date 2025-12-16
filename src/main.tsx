@@ -7,9 +7,12 @@ import "./i18n";
 
 import { WishlistProvider } from "./hooks/WishListContext/WishlistProvider";
 import { CartProvider } from "./hooks/CartProvider";
+import { AuthProvider } from "./hooks/AuthProvider";
+
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
+    <AuthProvider>
     <BrowserRouter>
       <CartProvider>
         <WishlistProvider>
@@ -17,5 +20,6 @@ createRoot(document.getElementById("root")!).render(
         </WishlistProvider>
       </CartProvider>
     </BrowserRouter>
+    </AuthProvider>
   </StrictMode>
 );

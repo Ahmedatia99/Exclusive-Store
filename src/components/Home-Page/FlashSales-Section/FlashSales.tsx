@@ -23,7 +23,7 @@ const FlashSales = () => {
     hasviewIcon: true,
     hasReview: true,
   };
-
+  
   return (
     <div>
       <SectionHeader
