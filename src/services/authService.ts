@@ -5,6 +5,6 @@ export const loginService = (data: { email: string; password: string }) => {
   return axios.post(`${BASE_URL}/users/login`, data, { withCredentials: true });
 };
 
-export const signupService = (data: { name: string; email: string; password: string }) => {
+export const signupService = (data: { fullName: string; email: string; password: string }) => {
   return axios.post(`${BASE_URL}/users/register`, data, { withCredentials: true });
 };

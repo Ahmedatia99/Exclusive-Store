@@ -1,7 +1,12 @@
 import { createContext } from "react";
 
-export type AuthUser = any;
-
+export interface AuthUser {
+  id: string;
+  fullName?: string;
+  email?: string;
+  role?: string;
+  [key: string]: unknown;
+}
 export type AuthContextType = {
   user: AuthUser | null;
   setUser: React.Dispatch<React.SetStateAction<AuthUser | null>>;

@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 import RegistrationInput from "./RegistrationInput";
 import { useAuth } from "@/hooks/useAuth";
 import { signupService } from "@/services/authService";
-
+import { Toaster } from "@/components/ui/sonner";
+import { toast } from "sonner";
 const SignUpForm = () => {
   const { t } = useTranslation();
   const { login } = useAuth();
@@ -29,20 +30,34 @@ const SignUpForm = () => {
 
     try {
       const payload = {
-        name: formData.fullName,
+        fullName: formData.fullName,
         email: formData.email,
         password: formData.password,
       };
       const data = await signupService(payload);
       login(data.data.user);
       navigate("/");
-    } catch (err: any) {
-      setError("Signup failed");
+      toast.success("login successful", {
+        style: {
+          background: "#10b981",
+          color: "#fff",
+          border: "1px solid #10b981",
+        },
+      });
+    } catch {
+      toast.error("Signup Failed", {
+        style: {
+          background: "#dc2626",
+          color: "#fff",
+          border: "1px solid #dc2626",
+        },
+      });
     }
   };
 
   return (
     <section className="lg:w-[80%] sm:w-[60%] w-[100%] mx-auto p-6">
+      <Toaster position="bottom-right" />
       <h1 className="text-3xl md:text-4xl font-bold">{t("createAccount")}</h1>
       <p className="text-gray-500 font-semibold mt-5 mb-6">
         {t("enterDetailsBelow")}
