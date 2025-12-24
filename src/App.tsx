@@ -16,30 +16,38 @@ const CategoryPage = React.lazy(() => import("./Pages/Category-Page"));
 import { ScrollToTop } from "./components/common/ScrollTop";
 import AllProducts_Page from "./Pages/AllProducts_Page";
 const HomePage = React.lazy(() => import("./Pages/Home-Page"));
+import { AuthProvider } from "./hooks/AuthProvider";
+
 function App() {
+
   return (
     <>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Main_Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/product/:id" element={<ProductsPage />} />
-          <Route path="signUp" element={<SignUp />} />
-          <Route path="login" element={<Login />} />
-          <Route path="account" element={<AccountPage />} />
-          <Route path="*" element={<NotFound404Page />} />
-          <Route path="/Contact" element={<Contact />} />
-          <Route path="/About" element={<About />} />
-          <Route path="/Cart" element={<CartPage />} />
-          <Route path="/Checkout" element={<CheckoutPage />} />
-          <Route path="/Favourites" element={<FavouritePage />} />
-          <Route path="/category/:categoryName" element={<CategoryPage />} />
-          {/* if  category navigate to AllProducts_Page  */}
-          <Route path="/category" element={<AllProducts_Page />} />
-          <Route path="/AllProducts" element={<AllProducts_Page />} />
-          <Route path="/AllProducts/:category" element={<AllProducts_Page />} />
-        </Route>
-      </Routes>
+      <AuthProvider>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Main_Layout />}>
+            <Route index element={<HomePage />} />
+            <Route path="/product/:id" element={<ProductsPage />} />
+            <Route path="signUp" element={<SignUp />} />
+            <Route path="login" element={<Login />} />
+            <Route path="account" element={<AccountPage />} />
+            <Route path="*" element={<NotFound404Page />} />
+            <Route path="/Contact" element={<Contact />} />
+            <Route path="/About" element={<About />} />
+            <Route path="/Cart" element={<CartPage />} />
+            <Route path="/Checkout" element={<CheckoutPage />} />
+            <Route path="/Favourites" element={<FavouritePage />} />
+            <Route path="/category/:categoryName" element={<CategoryPage />} />
+            {/* if  category navigate to AllProducts_Page  */}
+            <Route path="/category" element={<AllProducts_Page />} />
+            <Route path="/AllProducts" element={<AllProducts_Page />} />
+            <Route
+              path="/AllProducts/:category"
+              element={<AllProducts_Page />}
+            />
+          </Route>
+        </Routes>
+      </AuthProvider>
     </>
   );
 }

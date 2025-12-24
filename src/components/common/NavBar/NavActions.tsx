@@ -8,18 +8,20 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useAuth } from "@/hooks/useAuth";
 
 import Search_Input from "./Search_Input";
 import { useWishlist } from "@/hooks/WishListContext/useWishlist";
 import { CartContext } from "@/hooks/CartContext";
-
 function NavActions() {
+  const { user, logout } = useAuth();
   const cartContext = useContext(CartContext);
   const totalItems = cartContext?.cartCount() || 0;
   const { wishlistCount } = useWishlist();
   const { t } = useTranslation();
+
   return (
-    <div className="NavActions flex items-center gap-5">
+    <div className="NavActions flex items-center  justify-center gap-5">
       <Search_Input className="sm:block hidden ml-5" />
       <div className="icons flex gap-4">
         {/* Cart */}
@@ -51,42 +53,79 @@ function NavActions() {
         {/* User Dropdown */}
         <DropdownMenu modal={false}>
           <DropdownMenuTrigger asChild>
-            <button className="rounded-full transition-transform duration-300 hover:scale-110 cursor-pointer">
-              <User />
-            </button>
+            {user ? (
+              <button className="rounded-full transition-transform duration-300 hover:scale-110 cursor-pointer bg-main p-2 text-white font-semibold">
+                {user.fullName ? (
+                  user.fullName.slice(0, 2).toUpperCase()
+                ) : (
+                  <User />
+                )}
+              </button>
+            ) : (
+              <button className="rounded-full transition-transform duration-300 hover:scale-110 cursor-pointer">
+                <User />
+              </button>
+            )}
           </DropdownMenuTrigger>
-          <DropdownMenuContent
-            align="end"
-            sideOffset={6}
-            className="w-44 py-2 px-2 
-               backdrop-blur-md bg-white/50 text-start dark:bg-neutral-900/60 
+          {user ? (
+            <DropdownMenuContent
+              align="end"
+              sideOffset={6}
+              className="w-44 py-2 px-2 
+                 backdrop-blur-md bg-white/50 text-start dark:bg-neutral-900/60 
+                 border border-white/20 dark:border-neutral-800/40 
+                 shadow-lg rounded-xl 
+                 animate-in fade-in-0 zoom-in-95 
+                 transition-all duration-300"
+            >
+              <DropdownMenuItem
+                className="cursor-pointer capitalize text-sm font-medium 
+        text-neutral-800 dark:text-neutral-100
+        hover:text-red-400 hover:bg-transparent 
+        rounded-md transition-all duration-200"
+                onClick={() => logout()}
+              >
+                {t("logout")}
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                asChild
+                className="text-neutral-800 dark:text-neutral-100
+        hover:text-red-400 hover:bg-transparent 
+        rounded-md transition-all duration-200"
+              >
+                <Link to="/profile">{t("profile")}</Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          ) : (
+            <DropdownMenuContent
+              align="end"
+              sideOffset={6}
+              className="w-44 py-2 px-2 
+                 backdrop-blur-md bg-white/50 text-start dark:bg-neutral-900/60 
                border border-white/20 dark:border-neutral-800/40 
                shadow-lg rounded-xl 
                animate-in fade-in-0 zoom-in-95 
                transition-all duration-300"
-          >
-            <Link to={"/Login"}>
+            >
               <DropdownMenuItem
                 className="cursor-pointer capitalize text-sm font-medium 
         text-neutral-800 dark:text-neutral-100
         hover:text-red-400 hover:bg-transparent 
         rounded-md transition-all duration-200"
               >
-                {t("login")}
+                <Link to={"/Login"}>{t("login")}</Link>
               </DropdownMenuItem>
-            </Link>
 
-            <Link to={"/SignUp"}>
               <DropdownMenuItem
                 className="cursor-pointer capitalize text-sm font-medium 
-        text-neutral-800 dark:text-neutral-100
-        hover:text-red-400 hover:bg-transparent 
-        rounded-md transition-all duration-200"
+                  text-neutral-800 dark:text-neutral-100
+                  hover:text-red-400 hover:bg-transparent 
+                  rounded-md transition-all duration-200"
               >
-                {t("signUp")}
+                <Link to={"/SignUp"}>{t("signUp")}</Link>
               </DropdownMenuItem>
-            </Link>
-          </DropdownMenuContent>
+            </DropdownMenuContent>
+          )}
         </DropdownMenu>
       </div>
     </div>
