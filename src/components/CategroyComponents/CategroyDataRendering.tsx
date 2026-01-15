@@ -34,8 +34,8 @@ export default function CategroyDataRendering() {
   if (error) return <p className="p-6 text-red-600">Error: {error}</p>;
 
   return (
-    <div className="">
-      <div className="flex  md:flex-row flex-col gap-5 items-start sm:items-start">
+    <div className="flex flex-col md:flex-row gap-5 w-full">
+      <div className="flex  md:flex-row flex-col gap-5 items-start sm:items-start ">
         {/* Sidebar with category links */}
         <SidebarCategories
           categories={categoriesData.map(({ key, url, name }) => ({
@@ -44,26 +44,24 @@ export default function CategroyDataRendering() {
             name,
           }))}
         />
-
-        {/* Product grid */}
-        <div className="flex mt-8">
-          {products && products.length > 0 ? (
-            <Product_Card
-              className="grid grid-cols-4 max-sm:grid-cols-2 xl:grid-cols-6 lg:grid-cols-6 justify-center items-center"
-              products={products}
-              componentProps={{
-                hasFavouriteIcon: true, // show favorite icon
-                hasviewIcon: true, // show view icon
-                hasReview: true, // show review section
-              }}
-            />
-          ) : (
-            // Fallback if no products found
-            <p className="text-gray-600 flex border justify-center items-center">
-              No products found in this category.
-            </p>
-          )}
-        </div>
+      </div>
+      <div className="flex mt-8 flex-row  items-start    ">
+        {products && products.length > 0 ? (
+          <Product_Card
+            className="grid grid-cols-4 max-sm:grid-cols-3  xl:grid-cols-6 lg:grid-cols-6 justify-center items-center"
+            products={products}
+            componentProps={{
+              hasFavouriteIcon: true, // show favorite icon
+              hasviewIcon: true, // show view icon
+              hasReview: true, // show review section
+            }}
+          />
+        ) : (
+          // Fallback if no products found
+          <p className="text-gray-600 flex border justify-center items-center">
+            No products found in this category.
+          </p>
+        )}
       </div>
 
       {/* Pagination section */}
