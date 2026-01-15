@@ -10,9 +10,15 @@
       name="description"
       content="Discover Exclusive — your premium e-commerce destination for high-quality products, great deals, and a seamless shopping experience."
     />
+    <meta name="keywords" content="e-commerce, online shopping, exclusive deals, premium products, fashion, electronics, home & living" />
+    <meta name="author" content="Exclusive Store" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href="https://exclusive.com" />
 
     <!--  Favicon -->
     <link rel="icon" type="image/png" href="./public/favicon.ico" />
+    <link rel="apple-touch-icon" href="./public/favicon.ico" />
 
     <!--  Open Graph / WhatsApp / Facebook -->
     <meta property="og:type" content="website" />
@@ -24,6 +30,62 @@
     />
     <meta property="og:image" content="/og-image.ico" />
     <meta property="og:url" content="https://exclusive.com" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ar_SA" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Exclusive | Premium E-Commerce Store" />
+    <meta name="twitter:description" content="Shop the latest products and exclusive deals on Exclusive — where quality meets style." />
+    <meta name="twitter:image" content="/og-image.ico" />
+
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Exclusive",
+      "url": "https://exclusive.com",
+      "description": "Premium e-commerce destination for high-quality products and exclusive deals",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://exclusive.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "Exclusive",
+      "image": "https://exclusive.com/og-image.ico",
+      "description": "Premium e-commerce store offering high-quality products",
+      "url": "https://exclusive.com",
+      "telephone": "+8801611112222",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "111 Bijoy Sarani",
+        "addressLocality": "Dhaka",
+        "addressCountry": "Bangladesh"
+      },
+      "priceRange": "$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
