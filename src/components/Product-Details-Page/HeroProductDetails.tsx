@@ -1,4 +1,4 @@
-import { useContext, useState, useCallback, useMemo, useEffect } from "react";
+import { useContext, useState, useCallback, useMemo } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import ProductImages from "./ProductImagesDetails";
 import ProductInfo from "./ProductInfoDetails";

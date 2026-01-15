@@ -9,6 +9,9 @@ const ProductDetails = () => {
   const { id } = useParams<{ id?: string }>();
   const { product } = useProductByID(Number(id));
 
+  // Check if product is in stock by checking colors quantity
+  const isInStock = product?.colors.some(color => color.quantity > 0) ?? false;
+
   return (
     <>
       {product && (
@@ -27,7 +30,7 @@ const ProductDetails = () => {
               "@type": "Offer",
               "price": product.discountPrice || product.price,
               "priceCurrency": "USD",
-              "availability": product.quantity > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
+              "availability": isInStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
             },
             "aggregateRating": product.avgRate ? {
               "@type": "AggregateRating",

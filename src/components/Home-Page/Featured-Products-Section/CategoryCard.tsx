@@ -12,7 +12,6 @@ interface CategoryCardProps {
 
 export default function CategoryCard({
   title,
-  description,
   category,
   image,
   buttonText = t("Shop Now"),
