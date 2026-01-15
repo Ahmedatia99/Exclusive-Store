@@ -73,7 +73,7 @@ const ProductActions = ({
             <DialogHeader>
               <DialogTitle>{product.title}</DialogTitle>
               <DialogDescription>
-                Quick view of product details including images and price.
+                {t("Quick view of product details including images and price.")}
               </DialogDescription>
             </DialogHeader>
 

@@ -11,9 +11,7 @@ import { useNavBarLogic } from "./NavBarLogic";
 
 function NavBar() {
   const { navRef } = useNavBarLogic(300);
-
   return (
-    
     <motion.nav
       ref={navRef}
       role="navigation"

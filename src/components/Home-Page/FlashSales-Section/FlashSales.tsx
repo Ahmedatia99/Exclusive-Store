@@ -31,7 +31,6 @@ const FlashSales = () => {
         title={t("Flash Sales")}
         swiperRef={swiperRef}
         countdownTarget={new Date(new Date().getTime() + 24 * 60 * 60)}
-        // countdownTarget={countdownTarget}
         className="mb-10"
       />
 
