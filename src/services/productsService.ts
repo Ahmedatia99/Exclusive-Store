@@ -74,6 +74,12 @@ export async function getExploreOurProuctsSectionProducts() {
   return extractArray<productObject>(response.data);
 }
 export async function getProductById(id: number) {
-  const response = await axios.get<productObject>(`${API_URL}/products/${id}`);
-  return response.data;
+  const response = await axios.get(`${API_URL}/products/${id}`);
+  // Handle different API response structures
+  const data = response.data;
+  // Check if product is nested in data.data.product, data.data, data.product, or directly in data
+  if (data?.data?.product) return data.data.product;
+  if (data?.data && typeof data.data === 'object' && !Array.isArray(data.data) && data.data.id) return data.data;
+  if (data?.product) return data.product;
+  return data;
 }

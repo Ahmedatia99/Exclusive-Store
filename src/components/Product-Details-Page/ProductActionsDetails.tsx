@@ -59,7 +59,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ stock, onBuyNow }) => {
             : t("product.aria_buy_now")
         }
         variant="default"
-        className={`w-full h-full text-xs md:text-sm max-sm:px-2 ${
+        className={`w-full h-full text-caption md:text-body-sm max-sm:px-2 ${
           isOutOfStock ? "bg-gray-400 text-white cursor-not-allowed" : ""
         }`}
       >

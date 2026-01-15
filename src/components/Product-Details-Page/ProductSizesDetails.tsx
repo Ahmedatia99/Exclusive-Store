@@ -33,7 +33,7 @@ const ProductSizes: React.FC<ProductSizesProps> = ({
     <div className="flex flex-col gap-3 pt-1 pb-2">
       {/* Label */}
       <div className="flex items-center gap-2 sm:gap-9">
-        <p className="text-2xl font-semibold" id="product-size-label">
+        <p className="text-h3 font-semibold" id="product-size-label">
           {t("Size")}:
         </p>
 
@@ -50,7 +50,7 @@ const ProductSizes: React.FC<ProductSizesProps> = ({
               key={size}
               value={size}
               aria-label={`Select size ${size}`}
-              className="w-10 h-10 sm:w-12 sm:h-12 text-lg cursor-pointer rounded-md transition-colors duration-200
+              className="w-10 h-10 sm:w-12 sm:h-12 text-h5 cursor-pointer rounded-md transition-colors duration-200
                 data-[state=off]:border-2 data-[state=off]:border-[#0000005e]
                 data-[state=on]:text-white data-[state=on]:bg-[#DB4444] data-[state=on]:border-[#DB4444]"
             >

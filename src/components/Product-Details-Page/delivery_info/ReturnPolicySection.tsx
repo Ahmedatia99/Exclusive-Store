@@ -18,9 +18,9 @@ const ReturnPolicySection: React.FC<ReturnPolicySectionProps> = ({
   const { t } = useTranslation();
   return (
     <div className="border-t-2 flex-col sm:flex-row border-t-black flex items-center px-5  py-10 gap-5">
-      <TfiReload className="text-5xl" />
+      <TfiReload className="text-display" />
       <div className="flex flex-col gap-2 item-start ">
-        <h3 className="text-2xl font-semibold max-sm:text-center">{t("Return Delivery")}</h3>
+        <h3 className="text-h3 font-semibold max-sm:text-center">{t("Return Delivery")}</h3>
         {returnDelivery > 0 ? (
           <span className="font-semibold flex gap-2">
             <HoverCard>

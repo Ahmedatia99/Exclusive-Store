@@ -25,14 +25,14 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
       {/* Rating and stock info */}
       <div className="flex items-center gap-3 flex-wrap">
         <StarRating rating={product.rating} />
-        <span className="text-gray-700 text-xl">
+        <span className="text-gray-700 text-h4">
           ({product.reviews} {t("reviews")})
         </span>
         <hr className="h-5 border-1 border-gray-600" />
 
         {/* Accessible stock status */}
         <span
-          className={`text-xl font-semibold ${
+          className={`text-h4 font-semibold ${
             product.stock > 0 ? "text-green-600" : "text-red-500"
           }`}
           aria-live="polite"
@@ -44,10 +44,10 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
       </div>
 
       {/* Price with discount */}
-      <span className="text-3xl font-semibold">
+      <span className="text-h1 font-semibold">
         ${product.price}
         {product.discountPrice && product.discountPrice > 0 && (
-          <span className="ml-4 text-lg text-gray-400 line-through font-normal">
+          <span className="ml-4 text-h5 text-gray-400 line-through font-normal">
             ${product.discountPrice}
           </span>
         )}
