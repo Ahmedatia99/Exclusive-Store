@@ -9,6 +9,7 @@ import HeroImage from "./HeroImage";
 import { useHookProducts } from "@/hooks/productsCustomHook/useHookProducts";
 import type { hookProductObject } from "@/types/product_Type";
 import { categoriesData } from "@/components/CategroyComponents/categoriesData";
+import { LoadingSpinner } from "@/components/common/Loading";
 
 export default function Hero() {
   const { products, loading, error } = useHookProducts();
@@ -20,7 +21,7 @@ export default function Hero() {
       <div
         className="w-full cursor-grab bg-black text-white flex md:flex-row 
         items-center justify-between flex-col-reverse md:mt-8 ltr:md:ml-4 rtl:md:mr-4
-        px-6 md:px-10 pt-12 pb-2  md:h-125 overflow-hidden bg-[url('@/assets/images/icon-dotted-map-2.png')] bg-cover bg-center md:rounded-lg sm:rounded-none relative"
+        px-4 md:px-10 pt-4 md:pt-10 pb-2 min-h-[200px] md:h-96 overflow-hidden bg-[url('@/assets/images/icon-dotted-map-2.png')] bg-cover bg-center md:rounded-lg sm:rounded-none relative"
       >
         <div className="absolute top-1/2 left-1/2 max-sm:right-0 translate-x-1/2 -translate-y-1/2">
           <img
@@ -30,13 +31,11 @@ export default function Hero() {
           />
         </div>
         {loading ? (
-          <p className="text-gray-400 text-lg animate-pulse m-auto">
-            Loading products...
-          </p>
+          <LoadingSpinner fullScreen={false} size={35} />
         ) : error ? (
-          <p className="text-red-500 text-lg m-auto">Error: {error}</p>
+          <p className="text-red-500 text-body-lg m-auto">Error: {error}</p>
         ) : products.length === 0 ? (
-          <p className="text-gray-400 text-lg m-auto">No products found</p>
+          <p className="text-gray-400 text-body-lg m-auto">No products found</p>
         ) : (
           <Swiper
             key={i18n.dir()}
@@ -45,7 +44,9 @@ export default function Hero() {
             pagination={{ clickable: true, dynamicBullets: true }}
             autoplay={{ delay: 4000, disableOnInteraction: false }}
             loop
-            className="w-full h-full cursor-pointer"
+            slidesPerView={1}
+            spaceBetween={20}
+            className="w-full h-full cursor-pointer hero-swiper"
             style={
               {
                 "--swiper-pagination-bullet-size": "16px",
@@ -58,7 +59,7 @@ export default function Hero() {
           >
             {products.map((slide: hookProductObject) => (
               <SwiperSlide key={slide.id}>
-                <div className="flex flex-col gap-20 md:flex-row-reverse items-center justify-center md:justify-between h-full">
+                <div className="flex flex-col gap-4 md:gap-20 md:flex-row-reverse items-center justify-center md:justify-between h-full py-2 md:py-0">
                   <HeroImage slide={slide} />
                   <HeroContent slide={slide} />
                 </div>
