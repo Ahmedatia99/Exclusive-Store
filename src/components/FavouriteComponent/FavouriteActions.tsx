@@ -7,6 +7,7 @@ import { useProducts } from "../../hooks/useProducts";
 import WishlistButtons from "./WishlistButtons";
 import ConfirmModal from "./ConfirmModal";
 import { toCartProduct } from "@/utils/ProductDTO";
+import { LoadingSpinner } from "@/components/common/Loading";
 
 function FavouriteActions() {
   const { wishlist, clearWishlist } = useWishlist();
@@ -16,7 +17,7 @@ function FavouriteActions() {
   const [showModal, setShowModal] = useState(false);
   const { products, loading, error } = useProducts();
   //handel loading
-  if (loading) return <p>{t("Loading...")}</p>;
+  if (loading) return <LoadingSpinner fullScreen={false} size={25} />;
   //handel error
   if (error)
     return <p className="text-red-500">{t("Failed to load products")}</p>;

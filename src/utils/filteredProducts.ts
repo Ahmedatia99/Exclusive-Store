@@ -74,6 +74,7 @@ export function getFiltersFromUrl(
     return { discountOnly: true, category: "All" };
   if (categoryFromUrl === "bestselling")
     return { sort: "rating", category: "All" };
+  if (categoryFromUrl === "homecategory") return { category: "home" };
 
   const matchedCategory = products.find((p: productObject) =>
     p.category?.toLowerCase().includes(categoryFromUrl)

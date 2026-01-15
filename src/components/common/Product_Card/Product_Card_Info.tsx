@@ -19,15 +19,15 @@ function Product_Card_InfoComponent({
   onColorSelect: (color: string) => void;
 }) {
   return (
-    <div className="mt-4 flex flex-col gap-2 ml-3 md:ml-0">
+    <div className="mt-1.5 flex flex-col gap-1 ml-1.5 md:ml-0 min-h-[60px]">
       <Link to={`/product/${product.id}`}>
         <h3
           itemProp="name"
-          className="font-semibold text-2xl"
+          className="font-semibold text-caption leading-tight"
           title={product.title}
         >
-          {product.title.length > 20
-            ? product.title.slice(0, 20) + "..."
+          {product.title.length > 14
+            ? product.title.slice(0, 14) + "..."
             : product.title}
         </h3>
       </Link>
@@ -44,18 +44,18 @@ function Product_Card_InfoComponent({
             className="flex gap-4"
           >
             <span
-              className="productPrice text-[#DB4444] text-3xl font-medium"
+              className="productPrice text-[#DB4444] text-body-sm font-medium"
               itemProp="price"
             >
               {product.discountPrice}$
             </span>
             <meta itemProp="priceCurrency" content="EGP" />
-            <del className="text-[#727272] text-xl font-medium">
+            <del className="text-[#727272] text-caption font-medium">
               {product.price}
             </del>
           </div>
         ) : (
-          <span className="productPrice text-[#DB4444] text-3xl font-medium">
+          <span className="productPrice text-[#DB4444] text-body-sm font-medium">
             {product.price}$
           </span>
         )}
@@ -65,11 +65,11 @@ function Product_Card_InfoComponent({
             itemProp="aggregateRating"
             itemScope
             itemType="https://schema.org/AggregateRating"
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 mt-auto"
           >
             <StarRating rating={product.avgRate} />
 
-            <span className="text-[#727272] font-medium">
+            <span className="text-[#727272] font-medium text-caption">
               ({product.ratingCount})
             </span>
 

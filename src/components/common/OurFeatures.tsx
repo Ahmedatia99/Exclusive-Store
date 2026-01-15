@@ -49,8 +49,8 @@ function OurFeatures() {
               height={80}
               className="mb-4"
             />
-            <h3 className="font-semibold text-xl mb-2">{feature.title}</h3>
-            <p className="text-md ">{feature.description}</p>
+            <h3 className="font-semibold text-h4 mb-2">{feature.title}</h3>
+            <p className="text-body ">{feature.description}</p>
           </li>
         ))}
       </ul>

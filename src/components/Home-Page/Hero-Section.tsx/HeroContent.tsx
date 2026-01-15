@@ -14,29 +14,28 @@ export default function HeroContent({ slide }: HeroContentProps) {
   const navigatHero = useNavigate();
 
   const handelShopNow = () => {
-    navigatHero("/product/category/flashsales");
+    navigatHero("/allproducts");
   };
 
   const { t } = useTranslation();
   return (
-    <div className="z-10 text-center md:text-left mb-6 md:mb-0">
-      <p className="text-xl flex items-center justify-center md:justify-start gap-6">
-        <span className="text-white text-6xl"></span> {t(slide.title)}
+    <div className="z-10 text-center md:text-left mb-2 md:mb-0">
+      <p className="text-sm md:text-xl flex items-center justify-center md:justify-start gap-2 md:gap-6">
+        <span className="text-white text-lg sm:text-2xl md:text-5xl"> {t(slide.title)}</span>
       </p>
-      <h1 className="specialHeading mt-3 leading-snug">
+      <h1 className="specialHeading mt-1 md:mt-3 leading-tight md:leading-snug text-sm md:text-base">
         {t(slide.description)}
       </h1>
       <button
         onClick={handelShopNow}
-        className=" cursor-pointer group mt-5 md:mb-0 mb-5 flex items-center gap-2  py-2 mx-auto md:mx-0 
-             border-b-2 border-white text-white font-medium 
+        className="cursor-pointer group mt-2 md:mt-5 md:mb-0 mb-2 flex items-center gap-1 md:gap-2 py-1 md:py-2 mx-auto md:mx-0 
+             border-b-2 border-white text-white font-medium text-caption md:text-body
              transition-all duration-300 ease-in-out
              hover:text-main hover:border-main"
       >
         {t("shopNow")}
-        <GoArrowRight className="text-2xl transform transition-transform duration-300 group-hover:translate-x-2" />
+        <GoArrowRight className="w-3 h-3 md:text-h3 transform transition-transform duration-300 group-hover:translate-x-2" />
       </button>
-      <p className="text-gray-400 text-lg m-auto my-3 capitalize">Explore our collections</p>
     </div>
   );
 }

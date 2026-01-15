@@ -26,19 +26,72 @@ const LoginForm: React.FC = () => {
     e.preventDefault();
 
     try {
-      const data = await loginService(formData);
+      const response = await loginService(formData);
 
-      const userObj = data?.data?.user ?? data?.data ?? data;
+      // Extract user object from API response
+      // API response structure: { data: { user: { id, email, fullName } } }
+      const userObj =
+        response?.data?.data?.user ??
+        response?.data?.user ??
+        response?.data ??
+        response;
+
       login(userObj);
-      window.dispatchEvent(
-          new CustomEvent("valaha:identify", {
-            detail: {
-              businessCustomerId: userObj.businessCustomerId,
-              name: userObj.fullName,
-              email: userObj.email,
-            },
-          })
+
+      // Prepare valaha identify event data
+      // Use id as businessCustomerId since API doesn't return businessCustomerId
+      const businessCustomerId =
+        userObj.businessCustomerId ?? userObj.id ?? userObj._id;
+
+      if (!businessCustomerId) {
+        console.error(
+          "Valaha: businessCustomerId is missing from user object",
+          userObj
         );
+      }
+
+      const valahaData: {
+        businessCustomerId: string | number;
+        name?: string;
+        email?: string;
+        phone?: string;
+      } = {
+        businessCustomerId: businessCustomerId,
+      };
+
+      if (userObj.fullName || userObj.name) {
+        valahaData.name = userObj.fullName || userObj.name;
+      }
+
+      if (userObj.email) {
+        valahaData.email = userObj.email;
+      }
+
+      if (userObj.phone || userObj.phoneNumber) {
+        valahaData.phone = userObj.phone || userObj.phoneNumber;
+      }
+
+      // Debug: Log the data being sent
+      console.log("API Response:", response);
+      console.log("Extracted user object:", userObj);
+      console.log("Valaha identify event data:", valahaData);
+
+      // Only dispatch event if we have at least businessCustomerId
+      if (businessCustomerId) {
+        const event = new CustomEvent("valaha:identify", {
+          detail: valahaData,
+        });
+
+        console.log(
+          "Dispatching valaha:identify event with detail:",
+          event.detail
+        );
+        window.dispatchEvent(event);
+      } else {
+        console.warn(
+          "Valaha: Skipping identify event - businessCustomerId is missing"
+        );
+      }
       toast.success("login successful", {
         style: {
           background: "#10b981",
@@ -61,9 +114,7 @@ const LoginForm: React.FC = () => {
   return (
     <section className="lg:w-[60%] sm:w-[60%] w-[100%] mx-auto p-6">
       <Toaster position="bottom-right" />
-      <h1 className="sm:text-4xl text-3xl font-bold">
-        {t("loginToExclusive")}
-      </h1>
+      <h1 className="sm:text-h1 text-h2 font-bold">{t("loginToExclusive")}</h1>
       <p className="text-gray-600 mt-5 mb-6">{t("enterDetailsBelow")}</p>
 
       <form onSubmit={handleSubmit} className="space-y-5">

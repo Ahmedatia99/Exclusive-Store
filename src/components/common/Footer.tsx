@@ -66,11 +66,11 @@ function Footer() {
           >
             <h2
               id="footer-brand"
-              className="text-2xl font-bold text-center sm:text-left"
+              className="text-h3 font-bold text-center sm:text-left"
             >
               Exclusive
             </h2>
-            <p className="mt-6 max-w-md text-center sm:text-left leading-relaxed">
+            <p className="mt-6 max-w-md text-center sm:text-left text-body leading-relaxed">
               {t(" Subscribe to our newsletter and get")}{" "}
               <strong>{t("10% off")}</strong> {t("your first order.")}
             </p>
@@ -78,7 +78,7 @@ function Footer() {
               <div className="relative">
                 <input
                   type="text"
-                  className="w-full pl-3 pr-10 py-2 bg-transparent placeholder:text-gray-400 text-gray-600 text-sm border-2 border-gray-200 rounded-xs transition duration-300 ease focus:outline-none focus:border-gray-400 hover:border-gray-300"
+                  className="w-full pl-3 pr-10 py-2 bg-transparent placeholder:text-gray-400 text-gray-600 text-body-sm border-2 border-gray-200 rounded-xs transition duration-300 ease focus:outline-none focus:border-gray-400 hover:border-gray-300"
                   placeholder={t("Enter your email")}
                 />
 
@@ -100,11 +100,11 @@ function Footer() {
               >
                 <h3
                   id={`footer-${section.title}`}
-                  className="text-lg font-medium text-white"
+                  className="text-h5 font-medium text-white"
                 >
                   {section.title}
                 </h3>
-                <ul className="mt-6 space-y-4 text-sm">
+                <ul className="mt-6 space-y-4 text-body-sm">
                   {section.links.map((link, idx) => (
                     <li key={idx}>
                       <a
@@ -126,13 +126,11 @@ function Footer() {
             >
               <h3
                 id="footer-download"
-                className="text-lg font-medium text-white"
+                className="text-h5 font-medium text-white"
               >
-                Download App
+                {t("downloadapp")}
               </h3>
-              <p className="text-xs text-gray-300">
-                Save $3 with App (New Users Only)
-              </p>
+              <p className="text-caption text-gray-300">{t("saveapp")}</p>
               <div className="mt-4 flex items-center gap-4">
                 {/* <img src={qrCode} className="w-24 h-24 mt-8 max-sm:hidden md:hidden lg:block" /> */}
                 <div className="mt-6 flex flex-col gap-3">
@@ -142,9 +140,9 @@ function Footer() {
                     aria-label="Download on Google Play"
                   >
                     <FaGooglePlay className="size-6" />
-                    <div className="text-[10px] text-gray-400 leading-tight">
+                    <div className="text-caption text-gray-400 leading-tight">
                       Get it on
-                      <span className="block text-base text-white font-semibold">
+                      <span className="block text-body text-white font-semibold">
                         Google Play
                       </span>
                     </div>
@@ -155,9 +153,9 @@ function Footer() {
                     aria-label="Download on App Store"
                   >
                     <FaApple className="size-6" />
-                    <div className="text-[10px] text-gray-400 leading-tight">
+                    <div className="text-caption text-gray-400 leading-tight">
                       Download on the
-                      <span className="block text-base text-white font-semibold">
+                      <span className="block text-body text-white font-semibold">
                         App Store
                       </span>
                     </div>
@@ -186,7 +184,7 @@ function Footer() {
         {/* Bottom Footer */}
         <div className="mt-12   border-t border-gray-800 pt-6">
           <div className="text-center ">
-            <p className="mt-4 text-sm text-gray-400 sm:order-first sm:mt-0">
+            <p className="mt-4 text-body-sm text-gray-400 sm:order-first sm:mt-0">
               {t("copyright Rimel ")} {new Date().getFullYear()}&
               {t(" All rights reserved")}
             </p>

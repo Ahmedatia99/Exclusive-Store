@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
 import { useBestSellingSectionProducts } from "@/hooks/productsCustomHook/useBestSellingSectionProducts";
+import { LoadingSpinner } from "@/components/common/Loading";
 
 const BestProducts = () => {
   const { products, loading, error } = useBestSellingSectionProducts();
@@ -45,7 +46,7 @@ const BestProducts = () => {
 
       <div>
         {loading ? (
-          <p className="text-center text-gray-500">{t("Loading...")}</p>
+          <LoadingSpinner fullScreen={false} size={30} />
         ) : error ? (
           <p className="text-center text-main">
             {t("Failed to load products")}
@@ -60,12 +61,16 @@ const BestProducts = () => {
             dir={i18n.dir()}
             modules={[Navigation]}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
-            spaceBetween={20}
-            slidesPerView={1}
+            spaceBetween={10}
+            slidesPerView={3}
             breakpoints={{
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-              1280: { slidesPerView: 4 },
+              0: { slidesPerView: 3, spaceBetween: 8 },
+              480: { slidesPerView: 3, spaceBetween: 8 },
+              640: { slidesPerView: 3, spaceBetween: 10 },
+              768: { slidesPerView: 4, spaceBetween: 10 },
+              1024: { slidesPerView: 6, spaceBetween: 12 },
+              1280: { slidesPerView: 6, spaceBetween: 12 },
+              1536: { slidesPerView: 6, spaceBetween: 14 },
             }}
           >
             {products.map((p) => (

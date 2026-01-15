@@ -16,7 +16,7 @@ function NavMenu({ className }: NavMenuProps) {
     { path: "/", label: "home" },
     { path: "/Contact", label: "contact" },
     { path: "/About", label: "about" },
-    { path: "/SignUp", label: "signUp" },
+    { path: "/SignUp", label: "signup" },
   ];
 
   return (

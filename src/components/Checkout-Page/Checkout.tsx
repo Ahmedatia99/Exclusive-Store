@@ -35,7 +35,7 @@ const Checkout = () => {
             <section aria-labelledby="billing-heading">
               <h1
                 id="billing-heading"
-                className="text-2xl font-bold mb-5 text-gray-900"
+                className="text-h3 font-bold mb-5 text-gray-900"
               >
                 {t("billingDetails")}
               </h1>
@@ -48,7 +48,7 @@ const Checkout = () => {
             <section aria-labelledby="summary-heading">
               <h2
                 id="summary-heading"
-                className="text-xl font-bold mb-5 text-gray-900"
+                className="text-h4 font-bold mb-5 text-gray-900"
               >
                 {t("orderSummary")}
               </h2>

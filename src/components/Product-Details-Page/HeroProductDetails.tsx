@@ -14,6 +14,7 @@ import { useProductImages } from "../../hooks/useProductImages";
 import { toCartProduct } from "@/utils/ProductDTO";
 import { CartContext } from "@/hooks/CartContext";
 import { useProductByID } from "@/hooks/productsCustomHook/useProductById";
+import { LoadingSpinner } from "@/components/common/Loading";
 
 export default function HeroProductDetails() {
   const { id: idFromParams } = useParams<{ id?: string }>();
@@ -34,13 +35,6 @@ export default function HeroProductDetails() {
   //   States
   const [quantity, setQuantity] = useState(1);
   const [selectedPostalCode, setSelectedPostalCode] = useState("");
-
-  //   Handle missing product or error
-  useEffect(() => {
-    if (!loading && (!product || error)) {
-      navigate("/error");
-    }
-  }, [product, error, loading, navigate]);
 
   //   Hooks must always run after product is defined
   const { selectedColor, setSelectedColor, colorObj } =
@@ -66,12 +60,24 @@ export default function HeroProductDetails() {
   }, [product, selectedColor, quantity, cartContext]);
 
   if (loading) {
-    return (
-      <p className="text-center py-10 text-gray-600">Loading product...</p>
-    );
+    return <LoadingSpinner fullScreen={true} size={40} />;
   }
 
-  if (!product) return null;
+  if (error || !product) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[400px] gap-4 px-4">
+        <p className="text-gray-500 text-body-lg text-center">
+          {error || "Product not found"}
+        </p>
+        <button
+          onClick={() => navigate(-1)}
+          className="px-6 py-2 bg-main text-white rounded-lg hover:bg-main/90 transition-colors"
+        >
+          Go Back
+        </button>
+      </div>
+    );
+  }
 
   return (
     <section className="grid xl:grid-cols-[4fr_2fr] lg:grid-cols-[4fr_2fr] gap-10 xl:gap-20 mb-10">

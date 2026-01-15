@@ -31,11 +31,10 @@ export default function CategoryCard({
       />
 
       <div className="absolute bottom-6 left-6 text-white">
-        <h2 className="text-base md:text-xl lg:text-2xl font-bold">{title}</h2>
-        {description && <p className="text-xs mt-2 max-w-xs">{description}</p>}
+        {/* <h2 className="text-body md:text-h4 lg:text-h3 font-bold">{title}</h2> */}
         <Link
           to={`AllProducts/${category}`}
-          className="mt-4 text-sm text-white font-medium transition border-b border-gray-600 border-dashed"
+          className="mt-4 text-body-sm text-white font-medium transition border-b border-gray-600 border-dashed"
         >
           {buttonText}
         </Link>

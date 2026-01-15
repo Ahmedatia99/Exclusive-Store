@@ -18,21 +18,21 @@ const StarRatingComponent: React.FC<StarRatingProps> = ({
     if (rating >= i) {
       // Full star
       stars.push(
-        <Star key={i} className="text-yellow-400" fill="currentColor" />
+        <Star key={i} className="text-yellow-400 w-3 h-3" fill="currentColor" />
       );
     } else if (rating >= i - 0.5) {
       // Half star
       stars.push(
-        <StarHalf key={i} className="text-yellow-400" fill="currentColor" />
+        <StarHalf key={i} className="text-yellow-400 w-3 h-3" fill="currentColor" />
       );
     } else {
       // Outline star
-      stars.push(<Star key={i} className="text-gray-300" fill="none" />);
+      stars.push(<Star key={i} className="text-gray-300 w-3 h-3" fill="none" />);
     }
   }
 
   return (
-    <div className={`flex gap-1 items-center ${className || ""}`}>{stars}</div>
+    <div className={`flex gap-0.5 items-center ${className || ""}`}>{stars}</div>
   );
 };
 

@@ -13,6 +13,7 @@ export function useSearchLogic() {
         inputRef.current.value = "";
       }
     }
+    س;
   };
 
   return { inputRef, handleKeyDown };

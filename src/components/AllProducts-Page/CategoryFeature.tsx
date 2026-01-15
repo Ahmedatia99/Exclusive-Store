@@ -12,11 +12,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-
 import { useNavigate } from "react-router-dom";
 import type { Filters } from "@/types/product_Type";
 import { useAllProducts } from "@/hooks/productsCustomHook/useAllProducts";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 type CategoryFeatureProps = {
   filters: Filters;
@@ -71,7 +70,7 @@ const CategoryFeature = ({ filters, setFilters }: CategoryFeatureProps) => {
 
   return (
     <AccordionItem value="category">
-      <AccordionTrigger>Category</AccordionTrigger>
+      <AccordionTrigger>{t("category")}</AccordionTrigger>
       <AccordionContent>
         <Select
           value={filters.category || "All"}
@@ -83,7 +82,7 @@ const CategoryFeature = ({ filters, setFilters }: CategoryFeatureProps) => {
           <SelectContent>
             {categories.map((cat) => (
               <SelectItem key={cat} value={cat ?? ""}>
-                {cat ? cat.charAt(0).toUpperCase() + cat.slice(1) : "Unknown"}
+                {t(cat) ?? "Unknown"}
               </SelectItem>
             ))}
           </SelectContent>

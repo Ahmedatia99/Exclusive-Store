@@ -1,17 +1,22 @@
 import { useCart } from "@/hooks/useCart";
 import type { cartProduct } from "@/types/cart";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 type CartQuantityProps = {
   item: cartProduct;
 };
 function CartQuantity({ item }: CartQuantityProps) {
   const { editQuantity } = useCart();
+  const { t } = useTranslation();
 
   return (
     <div className="flex justify-center">
-      <label htmlFor={`qty-${item.key}`} className="max-sm:flex items-center mr-2 text-main font-semibold hidden">
-        Quantity:
+      <label
+        htmlFor={`qty-${item.key}`}
+        className="max-sm:flex items-center mr-2 text-main font-semibold hidden"
+      >
+        {t("quantity")}:
       </label>
       <input
         id={`qty-${item.key}`}

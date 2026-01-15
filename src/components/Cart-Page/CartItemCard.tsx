@@ -30,26 +30,31 @@ function CartItemCard({ item }: CartProductProps) {
         aria-label={`Remove ${item.title} from cart`}
         className="absolute left-0 top-0 bg-transparent flex justify-center items-center"
       >
-        <TiDelete className="text-3xl text-main" />
+        <TiDelete className="text-h1 text-main" />
       </Button>
 
       <CartProduct item={item} />
 
-      <h4 className="text-base md:text-xl text-center font-semibold">
+      <h4 className="text-body md:text-h4 text-center font-semibold">
         <span className="text-main sm:hidden">{t("price")}: </span>${item.price}
       </h4>
 
       <div className="flex sm:justify-center justify-between items-center gap-5">
-        <span className="max-sm:flex gap-3 sm:justify-end justify-center font-semibold text-base md:text-xl hidden">
-          <span className="sm:hidden text-main font-semibold">Total:</span> $
-          {total}
+        <span className="max-sm:flex gap-3 sm:justify-end justify-center font-semibold text-body md:text-h4 hidden">
+          <span className="sm:hidden text-main font-semibold">
+            {t("total")}:
+          </span>{" "}
+          ${total}
         </span>
         <CartQuantity item={item} />
       </div>
 
-      <span className="flex justify-center font-semibold text-sm md:text-base max-sm:hidden">
-        <span className="sm:hidden text-main font-semibold">Total:</span> $
-        {total}
+      <span className="flex justify-center font-semibold text-body-sm md:text-body max-sm:hidden">
+        <span className="sm:hidden text-main font-semibold">
+          {" "}
+          {t("total")}:
+        </span>{" "}
+        ${total}
       </span>
     </article>
   );

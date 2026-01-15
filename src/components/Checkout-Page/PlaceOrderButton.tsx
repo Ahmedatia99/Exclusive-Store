@@ -56,7 +56,7 @@ const PlaceOrderButton: React.FC<PlaceOrderButtonProps> = ({
   return (
     <Button
       type="button"
-      className="w-full mt-5 bg-[#DB4444] transition duration-300 text-white py-3 rounded hover:bg-red-700 text-lg font-semibold"
+      className="w-full mt-5 bg-[#DB4444] transition duration-300 text-white py-3 rounded hover:bg-red-700 text-body-lg font-semibold"
       onClick={handleSubmit}
     >
       {t("placeOrderBtn")}

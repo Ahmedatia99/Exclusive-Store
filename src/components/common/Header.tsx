@@ -22,10 +22,10 @@ function Header() {
   }, [i18n.language]);
 
   return (
-    <header className="bg-black text-white py-2  z-[60]">
-      <div className="container mx-auto flex flex-col gap-3 items-center justify-between px-4 md:flex-row">
+    <header className="bg-black text-white py-2  z-[60] ">
+      <div className="container mx-auto flex flex-col gap-3 items-center justify-between px-4 md:flex-row ">
         {/* Left / Centered Text */}
-        <h2 className="text-sm sm:text-base text-center flex-1">
+        <h2 className="text-body-sm sm:text-body text-center flex-1">
           {t("summerSale")}
           <Link
             to={"/AllProducts"}
@@ -36,13 +36,13 @@ function Header() {
         </h2>
 
         {/* Right Side: Language Selector */}
-        <div className="flex items-center gap-4 ml-4">
+        <div className="flex items-center gap-4 ml-4 bg-">
           <DropdownMenu
             modal={false}
             onOpenChange={(isOpen) => setOpen(isOpen)}
           >
             <DropdownMenuTrigger asChild>
-              <button className="flex items-center text-sm font-semibold cursor-pointer hover:text-gray-200 transition-colors">
+              <button className="flex items-center text-body-sm font-semibold cursor-pointer hover:text-gray-200 transition-colors">
                 {i18n.language === "ar" ? "العربية" : "English"}
                 <ChevronDown
                   className={`ml-1 h-4 w-4 transition-transform ${
@@ -51,11 +51,31 @@ function Header() {
                 />
               </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-28">
-              <DropdownMenuItem onClick={() => changeLanguage("en")}>
+            <DropdownMenuContent
+              align="end"
+              className="w-44 py-2 px-2 
+               backdrop-blur-md bg-white/50 text-start dark:bg-neutral-900/60 
+               border border-white/20 dark:border-neutral-800/40 
+               shadow-lg rounded-xl 
+               animate-in fade-in-0 zoom-in-95 
+               transition-all duration-300"
+            >
+              <DropdownMenuItem
+                className="cursor-pointer capitalize text-body-sm font-medium 
+        text-neutral-800 dark:text-neutral-100
+        hover:text-red-400 hover:bg-transparent 
+        rounded-md transition-all duration-200"
+                onClick={() => changeLanguage("en")}
+              >
                 English
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => changeLanguage("ar")}>
+              <DropdownMenuItem
+                className="cursor-pointer capitalize text-body-sm font-medium 
+        text-neutral-800 dark:text-neutral-100
+        hover:text-red-400 hover:bg-transparent 
+        rounded-md transition-all duration-200"
+                onClick={() => changeLanguage("ar")}
+              >
                 العربية
               </DropdownMenuItem>
             </DropdownMenuContent>

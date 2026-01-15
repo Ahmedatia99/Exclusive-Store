@@ -37,7 +37,7 @@ const AddToCartButton = ({
     setTimeout(() => setJustAdded(false), 2000);
   };
 
-  const buttonClasses = `addToCartBtn text-center p-3 flex items-center justify-center gap-3 rounded-b w-full cursor-pointer ${
+  const buttonClasses = `addToCartBtn text-center p-2 flex items-center justify-center gap-2 rounded-b w-full cursor-pointer text-caption ${
     className || ""
   }`;
 

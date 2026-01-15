@@ -14,6 +14,7 @@ import { useAllProducts } from "@/hooks/productsCustomHook/useAllProducts";
 import type { Filters } from "@/types/product_Type";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
 import AllProductsPagination from "./AllProductsPagination";
+import { LoadingSpinner } from "@/components/common/Loading";
 
 const productCardProps = {
   hasFavouriteIcon: true,
@@ -94,21 +95,21 @@ export default function AllProducts() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 min-h-[400px]">
           {/* Loading */}
           {loading && (
-            <p className="col-span-full text-center mt-10 text-gray-600 text-lg font-medium">
-              Loading products...
-            </p>
+            <div className="col-span-full">
+              <LoadingSpinner fullScreen={false} size={35} />
+            </div>
           )}
 
           {/* Error */}
           {!loading && error && (
-            <p className="col-span-full text-center mt-10 text-red-500 text-lg font-medium">
+            <p className="col-span-full text-center mt-10 text-red-500 text-body-lg font-medium">
               Failed to load products: {error}
             </p>
           )}
 
           {/* Empty */}
           {!loading && !error && paginatedProducts.length === 0 && (
-            <p className="col-span-full text-center mt-10 text-gray-500 text-lg font-medium">
+            <p className="col-span-full text-center mt-10 text-gray-500 text-body-lg font-medium">
               No products found
             </p>
           )}

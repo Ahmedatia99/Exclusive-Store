@@ -12,7 +12,7 @@ export default function HeroImage({ slide }: HeroImageProps) {
       <img
         src={slide.mainImgSRC}
         alt={slide.title}
-        className="object-contain w-md h-md transition-all duration-700"
+        className="object-contain w-32 h-32 sm:w-40 sm:h-40 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 transition-all duration-700"
       />
     </div>
   );

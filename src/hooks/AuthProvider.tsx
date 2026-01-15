@@ -17,7 +17,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const login = (u: AuthUser) => {
     setUser(u);
     try {
-      localStorage.setItem(LOCAL_KEY, JSON.stringify(u?.data));
+      // Save the entire user object, not u?.data
+      localStorage.setItem(LOCAL_KEY, JSON.stringify(u));
     } catch {
       console.error("Failed to save auth user to localStorage");
     }

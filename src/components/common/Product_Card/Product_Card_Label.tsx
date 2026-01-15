@@ -23,7 +23,7 @@ const ProductLabel = React.memo(
       return (
         <span
           itemProp="releaseStatus"
-          className="bg-[#00FF66] text-white rounded absolute top-2 left-3 px-2 py-1 text-sm font-semibold"
+          className="bg-[#00FF66] text-white rounded absolute top-1 left-2 px-1.5 py-0.5 text-caption font-semibold"
         >
           {t("NEW")}
         </span>
@@ -34,7 +34,7 @@ const ProductLabel = React.memo(
       return (
         <span
           itemProp="discount"
-          className="bg-[#DB4444] text-white rounded absolute top-2 left-3 px-4 py-1 text-sm font-semibold"
+          className="bg-[#DB4444] text-white rounded absolute top-1 left-2 px-2 py-0.5 text-caption font-semibold"
         >
           -{value}%
         </span>

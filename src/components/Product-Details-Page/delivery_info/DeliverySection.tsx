@@ -39,9 +39,9 @@ const DeliverySection: React.FC<DeliverySectionProps> = ({
   const { t } = useTranslation();
   return (
     <div className="flex flex-col sm:flex-row items-center px-5 py-10 gap-5">
-      <TbTruckDelivery className="text-5xl" />
+      <TbTruckDelivery className="text-display" />
       <div className="flex flex-col gap-2 max-sm:items-center md:items-start">
-        <h3 className="text-2xl font-semibold">{t("delivery.title")}</h3>
+        <h3 className="text-h3 font-semibold">{t("delivery.title")}</h3>
         {delivery ? (
           <>
             <Link

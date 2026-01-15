@@ -29,7 +29,7 @@ const LikeButtonDetails: React.FC<LikeButtonProps> = ({ productId }) => {
         ${liked ? "bg-main border-main" : "bg-white"}`}
       onClick={toggleWishlist}
     >
-      <GoHeart className={`text-3xl ${liked ? "text-white" : "text-black"}`} />
+      <GoHeart className={`text-h1 ${liked ? "text-white" : "text-black"}`} />
     </Button>
   );
 };

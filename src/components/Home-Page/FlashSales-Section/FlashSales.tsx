@@ -9,6 +9,7 @@ import SectionHeader from "@/components/common/SectionHeader";
 import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
 import { useExploreOurProductsSectionProducts } from "@/hooks/productsCustomHook/useExploreOurProductsSectionProducts";
+import { LoadingSpinner } from "@/components/common/Loading";
 
 const FlashSales = () => {
   const { products, loading, error } = useExploreOurProductsSectionProducts(); //  + flashSaleEndTime
@@ -23,7 +24,7 @@ const FlashSales = () => {
     hasviewIcon: true,
     hasReview: true,
   };
-  
+
   return (
     <div>
       <SectionHeader
@@ -35,18 +36,14 @@ const FlashSales = () => {
       />
 
       {loading ? (
-        <div className="flex justify-center items-center h-75">
-          <p className="text-gray-400 text-lg animate-pulse">
-            Loading products...
-          </p>
-        </div>
+        <LoadingSpinner fullScreen={false} size={30} />
       ) : error ? (
         <div className="flex justify-center items-center h-75">
-          <p className="text-main text-lg">Error: {error}</p>
+          <p className="text-main text-body-lg">Error: {error}</p>
         </div>
       ) : products.length === 0 ? (
         <div className="flex justify-center items-center h-75">
-          <p className="text-gray-400 text-lg">No products found</p>
+          <p className="text-gray-400 text-body-lg">No products found</p>
         </div>
       ) : (
         <Swiper
@@ -54,12 +51,16 @@ const FlashSales = () => {
           dir={i18n.dir()}
           modules={[Navigation]}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
-          spaceBetween={20}
-          slidesPerView={1}
+          spaceBetween={10}
+          slidesPerView={4}
           breakpoints={{
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-            1280: { slidesPerView: 4 },
+            0: { slidesPerView: 3, spaceBetween: 8 },
+            480: { slidesPerView: 3, spaceBetween: 8 },
+            640: { slidesPerView: 3, spaceBetween: 10 },
+            768: { slidesPerView: 4, spaceBetween: 10 },
+            1024: { slidesPerView: 6, spaceBetween: 12 },
+            1280: { slidesPerView: 6, spaceBetween: 12 },
+            1536: { slidesPerView: 6, spaceBetween: 14 },
           }}
         >
           {products.map((p) => (

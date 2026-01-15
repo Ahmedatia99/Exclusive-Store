@@ -32,7 +32,7 @@ function RegistrationInput({
       {label && (
         <Label
           htmlFor={inputId}
-          className="block text-sm font-medium text-gray-700 mb-1"
+          className="block text-body-sm font-medium text-gray-700 mb-1"
         >
           {t(label)}
         </Label>

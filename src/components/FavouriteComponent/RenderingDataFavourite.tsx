@@ -5,6 +5,7 @@ import Product_Card from "@/components/common/Product_Card/Product_Card";
 import { Link } from "react-router-dom";
 import { useProducts } from "../../hooks/useProducts";
 import { ShadPagination } from "./usePagination";
+import { LoadingSpinner } from "@/components/common/Loading";
 
 function RenderingDataFavourite() {
   const { wishlist } = useWishlist();
@@ -32,7 +33,7 @@ function RenderingDataFavourite() {
     }
   }, [favouriteProducts, currentPage, itemsPerPage]);
   //  Show loading or error messages
-  if (loading) return <p>{t("Loading...")}</p>;
+  if (loading) return <LoadingSpinner fullScreen={false} size={30} />;
   if (error)
     return <p className="text-red-500">{t("Failed to load products")}</p>;
 
