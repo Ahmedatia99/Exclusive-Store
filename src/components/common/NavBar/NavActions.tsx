@@ -23,25 +23,31 @@ function NavActions() {
   return (
     <div className="NavActions flex items-center  justify-center gap-5">
       <Search_Input className="sm:block hidden ml-5" />
-      <div className="icons flex gap-4">
+      <div className="icons flex items-center gap-2">
         {/* Cart */}
-        <Link to={"/Cart"} className="relative inline-block">
-          <ShoppingCart className="transition-transform duration-300 hover:scale-110" />
+        <Link
+          to={"/Cart"}
+          className="relative w-10 h-10 flex items-center justify-center"
+        >
+          <ShoppingCart className="w-5 h-5 transition-transform duration-300 hover:scale-110" />
           {totalItems > 0 && (
-            <span className="absolute -top-2 -right-3 bg-red-600 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
+            <span className="absolute -top-2 -right-3 bg-red-600 text-white text-caption font-bold rounded-full w-6 h-6 flex items-center justify-center">
               {totalItems > 99 ? "99+" : totalItems}
             </span>
           )}
         </Link>
 
         {/* Favourites */}
-        <Link to={"/Favourites"} className="relative inline-block">
-          <Heart className="transition-transform duration-300 hover:scale-110 text-black" />
+        <Link
+          to={"/Favourites"}
+          className="relative w-10 h-10 flex items-center justify-center"
+        >
+          <Heart className="w-5 h-5 transition-transform duration-300 hover:scale-110 text-black" />
           {wishlistCount > 0 && (
             <span
               className="absolute -top-2 -right-2 
                  bg-gradient-to-r from-pink-500 via-red-500 to-pink-600 
-                 text-white text-xs font-bold 
+                 text-white text-caption font-bold 
                  rounded-full w-6 h-6 flex items-center justify-center
                 "
             >
@@ -54,16 +60,16 @@ function NavActions() {
         <DropdownMenu modal={false}>
           <DropdownMenuTrigger asChild>
             {user ? (
-              <button className="rounded-full transition-transform duration-300 hover:scale-110 cursor-pointer bg-main p-2 text-white font-semibold">
+              <button className="rounded-full transition-transform duration-300 hover:scale-100 cursor-pointer bg-main text-white font-semibold w-8 h-8 flex items-center justify-center text-caption leading-none">
                 {user.fullName ? (
                   user.fullName.slice(0, 2).toUpperCase()
                 ) : (
-                  <User />
+                  <User className="w-5 h-5" />
                 )}
               </button>
             ) : (
-              <button className="rounded-full transition-transform duration-300 hover:scale-110 cursor-pointer">
-                <User />
+              <button className="rounded-full transition-transform duration-300 hover:scale-110 cursor-pointer w-10 h-10 flex items-center justify-center">
+                <User className="w-5 h-5" />
               </button>
             )}
           </DropdownMenuTrigger>
@@ -79,7 +85,7 @@ function NavActions() {
                  transition-all duration-300"
             >
               <DropdownMenuItem
-                className="cursor-pointer capitalize text-sm font-medium 
+                className="cursor-pointer capitalize text-body-sm font-medium 
         text-neutral-800 dark:text-neutral-100
         hover:text-red-400 hover:bg-transparent 
         rounded-md transition-all duration-200"
@@ -108,7 +114,8 @@ function NavActions() {
                transition-all duration-300"
             >
               <DropdownMenuItem
-                className="cursor-pointer capitalize text-sm font-medium 
+                asChild
+                className="cursor-pointer capitalize text-body-sm font-medium 
         text-neutral-800 dark:text-neutral-100
         hover:text-red-400 hover:bg-transparent 
         rounded-md transition-all duration-200"
@@ -117,7 +124,8 @@ function NavActions() {
               </DropdownMenuItem>
 
               <DropdownMenuItem
-                className="cursor-pointer capitalize text-sm font-medium 
+                asChild
+                className="cursor-pointer capitalize text-body-sm font-medium 
                   text-neutral-800 dark:text-neutral-100
                   hover:text-red-400 hover:bg-transparent 
                   rounded-md transition-all duration-200"
