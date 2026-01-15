@@ -56,7 +56,9 @@
 }
 
 .section-header__label--large {
-  @apply text-black text-xl;
+  @apply text-black;
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-normal);
 }
 
 .section-header__label--small {
@@ -74,8 +76,16 @@
 
 /* Title */
 .section-header__title {
-  @apply text-3xl md:text-4xl    font-semibold leading-tight;
+  @apply font-semibold leading-tight;
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-tight);
   color: black !important; /* Override global CSS */
+}
+
+@media (min-width: 768px) {
+  .section-header__title {
+    font-size: var(--font-size-h1);
+  }
 }
 
 /* Countdown timer in section header */
