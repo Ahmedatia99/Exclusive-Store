@@ -20,7 +20,7 @@ function SpecialCard() {
         {/* Texts */}
         <div className="flex flex-col justify-center items-start gap-4 md:gap-8 max-w-lg">
           <span
-            className="text-green-400 text-xl font-semibold    tracking-wide"
+            className="text-green-400 text-h4 font-semibold    tracking-wide"
             aria-label="Product category"
           >
             {t("Categories")}
@@ -28,7 +28,7 @@ function SpecialCard() {
 
           <h2
             id="special-offer-title"
-            className="font-semibold text-2xl md:text-3xl lg:text-5xl text-white leading-tight"
+            className="font-semibold text-h3 md:text-h2 lg:text-h1 text-white leading-tight"
           >
             Enhance Your Music Experience
           </h2>

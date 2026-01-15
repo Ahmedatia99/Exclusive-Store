@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useProductByCategory } from "@/hooks/useProductByCategory";
 import { categoriesData } from "./categoriesData";
 import { ShadPagination } from "../FavouriteComponent/usePagination";
+import { LoadingSpinner } from "@/components/common/Loading";
 
 export default function CategroyDataRendering() {
   // Get the current category name from the URL (e.g., /category/electronics)
@@ -28,11 +29,7 @@ export default function CategroyDataRendering() {
 
   // Show loading state while fetching
   if (loading)
-    return (
-      <div className="flex justify-center items-center h-64">
-        <p>Loading products...</p>
-      </div>
-    );
+    return <LoadingSpinner fullScreen={false} size={35} />;
 
   // Show error message if something goes wrong
   if (error) return <p className="p-6 text-red-600">Error: {error}</p>;

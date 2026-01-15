@@ -15,13 +15,13 @@ function CartTotalPrice() {
       id="cart-summary"
       aria-label="Cart total summary"
     >
-      <h2 className="font-semibold text-lg mb-3">{t("cart_total")}</h2>
+      <h2 className="font-semibold text-body-lg mb-3">{t("cart_total")}</h2>
 
       <div className="flex justify-between mb-2">
         <span>{t("shipping")}:</span>
         <span className="text-green-600">{t("free")}</span>
       </div>
-      <div className="flex justify-between font-semibold text-lg">
+      <div className="flex justify-between font-semibold text-body-lg">
         <span>{t("total")}:</span>
         <span>${subtotal}</span>
       </div>

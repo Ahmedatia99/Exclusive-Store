@@ -34,7 +34,7 @@ function BreadcrumbsComponent() {
 
   return (
     <nav
-      className="text-sm text-gray-500 my-7 md:my-10"
+      className="text-body-sm text-gray-500 my-7 md:my-10"
       aria-label="Breadcrumb"
       itemScope
       itemType="https://schema.org/BreadcrumbList"

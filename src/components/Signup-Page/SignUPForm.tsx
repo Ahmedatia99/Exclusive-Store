@@ -58,7 +58,7 @@ const SignUpForm = () => {
   return (
     <section className="lg:w-[80%] sm:w-[60%] w-[100%] mx-auto p-6">
       <Toaster position="bottom-right" />
-      <h1 className="text-3xl md:text-4xl font-bold">{t("createAccount")}</h1>
+      <h1 className="text-h2 md:text-h1 font-bold">{t("createAccount")}</h1>
       <p className="text-gray-500 font-semibold mt-5 mb-6">
         {t("enterDetailsBelow")}
       </p>
@@ -113,7 +113,7 @@ const SignUpForm = () => {
       </p>
 
       {error && (
-        <p className="text-white mb-3 text-xl text-center w-full bg-red-500 py-5 rounded-lg">
+        <p className="text-white mb-3 text-h4 text-center w-full bg-red-500 py-5 rounded-lg">
           {error}
         </p>
       )}

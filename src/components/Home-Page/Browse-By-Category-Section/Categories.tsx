@@ -52,10 +52,10 @@ function Categories() {
           >
             {/* Category card */}
             <div className="flex flex-col items-center justify-center border py-6 sm:py-8 rounded-lg hover:text-white hover:bg-main cursor-pointer transition">
-              <div className="rounded-md flex items-center justify-center text-3xl sm:text-4xl md:text-5xl mb-2">
+              <div className="rounded-md flex items-center justify-center text-h1 sm:text-display md:text-display mb-2">
                 {category.icon}
               </div>
-              <span className="font-medium text-center px-1 w-full xl:text-lg sm:text-base md:text-sm">
+              <span className="font-medium text-center px-1 w-full xl:text-body-lg sm:text-body md:text-body-sm">
                 {t(category.name)}
               </span>
             </div>

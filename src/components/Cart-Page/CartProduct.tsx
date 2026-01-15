@@ -15,7 +15,7 @@ function CartProduct({ item }: CartProductProps) {
         loading="lazy"
         className="w-32 h-auto md:w-24  mt-3 sm:mt-0 object-contain rounded"
       />
-      <span className="font-semibold text-sm text-center">{item.title}</span>
+      <span className="font-semibold text-body-sm text-center">{item.title}</span>
     </div>
   );
 }

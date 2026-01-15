@@ -37,11 +37,11 @@ function Contact() {
               >
                 <Phone color="white" />
               </div>
-              <h2 id="contact-title" className="font-semibold text-lg">
+              <h2 id="contact-title" className="font-semibold text-body-lg">
                 {t("callToUs")}
               </h2>
             </div>
-            <div className="flex flex-col gap-5 font-medium text-md">
+            <div className="flex flex-col gap-5 font-medium text-body">
               <p>{t("available247")}</p>
               <p>
                 {t("phone")}:{" "}
@@ -66,9 +66,9 @@ function Contact() {
               >
                 <Mail color="white" />
               </div>
-              <h2 className="font-semibold text-lg">{t("writeToUs")}</h2>
+              <h2 className="font-semibold text-body-lg">{t("writeToUs")}</h2>
             </div>
-            <div className="flex flex-col gap-5 font-medium text-md">
+            <div className="flex flex-col gap-5 font-medium text-body">
               <p>{t("fillFormContact")}</p>
               <p>
                 {t("email")}:{" "}

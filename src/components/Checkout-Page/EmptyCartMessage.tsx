@@ -36,7 +36,7 @@ function EmptyCartMessage() {
       />
 
       {/* 📝 Heading */}
-      <h2 className="text-2xl font-bold text-gray-800 mb-2">
+      <h2 className="text-h3 font-bold text-gray-800 mb-2">
         {t("emptyCartMessage")}
       </h2>
 

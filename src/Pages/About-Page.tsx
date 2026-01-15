@@ -51,7 +51,7 @@ function About() {
             <h1 id="about-title" className="heading text-black mb-10">
               {t("aboutTitle")}
             </h1>
-            <p className="text-gray-700 text-lg font-semibold max-w-2xl mb-4">
+            <p className="text-gray-700 text-body-lg font-semibold max-w-2xl mb-4">
               {t("aboutDesc")}
             </p>
           </div>
@@ -67,8 +67,8 @@ function About() {
                 role="region"
                 aria-labelledby={`about-card-${id}`}
               >
-                <Icon className="text-main text-4xl mb-2" aria-hidden="true" />
-                <h2 id={`about-card-${id}`} className="font-bold text-xl mb-1">
+                <Icon className="text-main text-h1 mb-2" aria-hidden="true" />
+                <h2 id={`about-card-${id}`} className="font-bold text-h4 mb-1">
                   {t(titleKey)}
                 </h2>
                 <p className="text-gray-600">{t(descKey)}</p>
