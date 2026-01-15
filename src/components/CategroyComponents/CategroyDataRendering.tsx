@@ -28,15 +28,14 @@ export default function CategroyDataRendering() {
   useEffect(() => setCurrentPage(1), [categoryName]);
 
   // Show loading state while fetching
-  if (loading)
-    return <LoadingSpinner fullScreen={false} size={35} />;
+  if (loading) return <LoadingSpinner fullScreen={false} size={35} />;
 
   // Show error message if something goes wrong
   if (error) return <p className="p-6 text-red-600">Error: {error}</p>;
 
   return (
     <div className="">
-      <div className="flex justify-between md:flex-row flex-col gap-5 items-center sm:items-start">
+      <div className="flex  md:flex-row flex-col gap-5 items-start sm:items-start">
         {/* Sidebar with category links */}
         <SidebarCategories
           categories={categoriesData.map(({ key, url, name }) => ({
@@ -47,10 +46,10 @@ export default function CategroyDataRendering() {
         />
 
         {/* Product grid */}
-        <div className="flex">
+        <div className="flex mt-8">
           {products && products.length > 0 ? (
             <Product_Card
-              className="grid grid-cols-2 max-sm:grid-cols-1 xl:grid-cols-4 lg:grid-cols-4 justify-center items-center"
+              className="grid grid-cols-4 max-sm:grid-cols-2 xl:grid-cols-6 lg:grid-cols-6 justify-center items-center"
               products={products}
               componentProps={{
                 hasFavouriteIcon: true, // show favorite icon
