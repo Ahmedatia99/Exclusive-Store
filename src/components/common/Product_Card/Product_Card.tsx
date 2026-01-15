@@ -24,9 +24,9 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
     <article
       itemScope
       itemType="https://schema.org/Product"
-      className="boxContainer w-full"
+      className="boxContainer w-full max-w-[200px] mx-auto h-full flex flex-col"
     >
-      <div className="group   flex flex-col justify-center relative rounded bg-[#f5f5f5] overflow-hidden">
+      <div className="group flex flex-col justify-center relative rounded bg-[#f5f5f5] overflow-hidden flex-1 min-h-[140px]">
         {/* Product image */}
         <div>
           <Link to={`/product/${product.id}`} itemProp="url">
@@ -47,7 +47,7 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
         >
           <AddToCartButton
             fixed
-            className="w-full bg-black text-white py-3 font-semibold text-center rounded-none"
+            className="w-full bg-black text-white py-2 font-medium text-center rounded-none text-caption"
             ProductToAdd={toCartProduct(product, selectedColor)}
           />
         </div>
@@ -72,14 +72,16 @@ const Single_Product_Card = React.memo(function Single_Product_Card({
       </div>
 
       {/* Product details */}
-      <Product_Card_Info
-        product={product}
-        hasReview={componentProps?.hasReview}
-        hasColors={componentProps?.hasColors}
-        ratingAndPriceInRow={componentProps?.ratingAndPriceInRow}
-        selectedColor={selectedColor}
-        onColorSelect={setSelectedColor}
-      />
+      <div className="flex-shrink-0">
+        <Product_Card_Info
+          product={product}
+          hasReview={componentProps?.hasReview}
+          hasColors={componentProps?.hasColors}
+          ratingAndPriceInRow={componentProps?.ratingAndPriceInRow}
+          selectedColor={selectedColor}
+          onColorSelect={setSelectedColor}
+        />
+      </div>
     </article>
   );
 });
@@ -91,7 +93,7 @@ function Product_Card({
 }: ProductCardComponentProps) {
   return (
     <div
-      className={`flex justify-between max-[640px]:px-18 max-[500px]:px-10 max-[450px]:px-0  gap-5 ${className}`}
+      className={`flex justify-between max-[640px]:px-12 max-[500px]:px-8 max-[450px]:px-0  gap-2 ${className}`}
     >
       {products.map((product) => (
         <Single_Product_Card

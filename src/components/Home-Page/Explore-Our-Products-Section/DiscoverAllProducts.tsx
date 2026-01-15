@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
 import { useExploreOurProductsSectionProducts } from "@/hooks/productsCustomHook/useExploreOurProductsSectionProducts";
+import { LoadingSpinner } from "@/components/common/Loading";
 const DiscoverAllProducts = () => {
   // Fetch products for "Explore Our Products" section
   const { products, loading, error } = useExploreOurProductsSectionProducts();
@@ -30,7 +31,7 @@ const DiscoverAllProducts = () => {
 
   // Translation hook
   const { t } = useTranslation();
-  console.log(products)
+  console.log(products);
   return (
     <div>
       {/* Section Header should always appear regardless of data or status */}
@@ -46,7 +47,7 @@ const DiscoverAllProducts = () => {
       {/* Conditional rendering for loading, error, or empty states */}
       {loading ? (
         // Loading state
-        <p className="text-center text-gray-500">{t("Loading...")}</p>
+        <LoadingSpinner fullScreen={false} size={30} />
       ) : error ? (
         // Error state
         <p className="text-center text-main">{t("Failed to load products")}</p>
@@ -61,13 +62,17 @@ const DiscoverAllProducts = () => {
           key={i18n.dir()}
           dir={i18n.dir()}
           modules={[Navigation]}
-          slidesPerView={1}
-          spaceBetween={16}
+          slidesPerView={3}
+          spaceBetween={10}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           breakpoints={{
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-            1280: { slidesPerView: 5 },
+            0: { slidesPerView: 3, spaceBetween: 8 },
+            480: { slidesPerView: 3, spaceBetween: 8 },
+            640: { slidesPerView: 3, spaceBetween: 10 },
+            768: { slidesPerView: 4, spaceBetween: 10 },
+            1024: { slidesPerView: 6, spaceBetween: 12 },
+            1280: { slidesPerView: 6, spaceBetween: 12 },
+            1536: { slidesPerView: 6, spaceBetween: 14 },
           }}
         >
           {products.map((p) => (

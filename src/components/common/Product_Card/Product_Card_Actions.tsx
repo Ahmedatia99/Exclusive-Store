@@ -41,18 +41,18 @@ const ProductActions = ({
   const [mainImage, setMainImage] = useState(product.mainImgSRC);
 
   return (
-    <div className="icons absolute right-2 top-2 flex flex-col gap-3">
+    <div className="icons absolute right-1 top-1 flex flex-col gap-1.5">
       {/* Favourite button */}
       {componentProps?.hasFavouriteIcon && (
         <button
           aria-label={liked ? "Remove from favourites" : "Add to favourites"}
           onClick={toggleWishlist}
-          className="bg-white rounded-full w-7 h-7 flex items-center justify-center hover:scale-120 transition-transform"
+          className="bg-white rounded-full w-5 h-5 flex items-center justify-center hover:scale-110 transition-transform"
         >
           {liked ? (
-            <HeartFilled className="fill-red-500 cursor-pointer" />
+            <HeartFilled className="fill-red-500 cursor-pointer w-3.5 h-3.5" />
           ) : (
-            <Heart className="text-gray-700 cursor-pointer" />
+            <Heart className="text-gray-700 cursor-pointer w-3.5 h-3.5" />
           )}
         </button>
       )}
@@ -63,9 +63,9 @@ const ProductActions = ({
           <DialogTrigger asChild>
             <button
               aria-label="View product details"
-              className="bg-white rounded-full w-7 h-7 flex items-center justify-center hover:scale-120 transition-transform"
+              className="bg-white rounded-full w-5 h-5 flex items-center justify-center hover:scale-110 transition-transform"
             >
-              <Eye className="cursor-pointer" />
+              <Eye className="cursor-pointer w-3.5 h-3.5" />
             </button>
           </DialogTrigger>
 
@@ -117,11 +117,11 @@ const ProductActions = ({
 
             {/* Product details */}
             <div className="mt-4 space-y-2">
-              <p className="text-3xl font-semibold text-red-600">
+              <p className="text-h1 font-semibold text-red-600">
                 {product.discountPrice ? (
                   <>
                     {product.discountPrice}$
-                    <span className="text-gray-500 text-lg line-through ml-2">
+                    <span className="text-gray-500 text-h5 line-through ml-2">
                       {product.price}$
                     </span>
                   </>
@@ -148,12 +148,12 @@ const ProductActions = ({
       {componentProps?.hasDeleteIcon && (
         <button
           aria-label="Delete product"
-          className="bg-white rounded-full w-7 h-7 flex cursor-pointer items-center justify-center hover:scale-120 transition-transform"
+          className="bg-white rounded-full w-5 h-5 flex cursor-pointer items-center justify-center hover:scale-110 transition-transform"
           onClick={() => {
             removeFromWishlist(product.id);
           }}
         >
-          <BsTrash3 className="text-xl" />
+          <BsTrash3 className="text-base" />
         </button>
       )}
     </div>
